@@ -3,6 +3,8 @@ import { useState } from "react";
 import heroImg from "@/assets/hero-yoga.webp";
 import teacherImg from "@/assets/teacher.webp";
 import workshopImg from "@/assets/workshop.webp";
+import retreatImg from "@/assets/Retiro-de-Fin-de-Semana.webp";
+import yinImg from "@/assets/Iniciacion-al-Yin-Yoga.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,9 +36,9 @@ const schedule = [
 ];
 
 const workshops = [
-  { date: "15 Jun", title: "Taller de Respiración Consciente", desc: "Una mañana dedicada al pranayama y la quietud." },
-  { date: "06 Jul", title: "Retiro de Fin de Semana — Sierra", desc: "Dos días de yoga, silencio y naturaleza." },
-  { date: "20 Jul", title: "Iniciación al Yin Yoga", desc: "Práctica lenta para soltar tensiones profundas." },
+  { date: "15 Jun", title: "Taller de Respiración Consciente", desc: "Una mañana dedicada al pranayama y la quietud.", image: workshopImg },
+  { date: "06 Jul", title: "Retiro de Fin de Semana — Sierra", desc: "Dos días de yoga, silencio y naturaleza.", image: retreatImg },
+  { date: "20 Jul", title: "Iniciación al Yin Yoga", desc: "Práctica lenta para soltar tensiones profundas.", image: yinImg },
 ];
 
 const testimonials = [
@@ -223,26 +225,21 @@ function Workshops() {
           </a>
         </div>
         <div className="grid gap-12 md:grid-cols-3">
-          {workshops.map((w, i) => (
-            <article key={w.title} className="group">
-              {i === 0 && (
-                <img
-                  src={workshopImg}
-                  alt="Materiales para taller de yoga"
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  className="mb-6 aspect-[4/3] w-full rounded-sm object-cover"
-                />
-              )}
-              {i !== 0 && (
-                <div className="mb-6 aspect-[4/3] w-full rounded-sm bg-accent/40" />
-              )}
-              <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{w.date}</p>
-              <h3 className="mt-3 text-2xl">{w.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{w.desc}</p>
-            </article>
-          ))}
+		{workshops.map((w) => (
+  			<article key={w.title} className="group">
+   			 <img
+      				src={w.image}
+      				alt={w.title}
+      				width={1200}
+      				height={900}
+      				loading="lazy"
+      				className="mb-6 aspect-[4/3] w-full rounded-sm object-cover"
+    			/>
+    		<p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{w.date}</p>
+    		<h3 className="mt-3 text-2xl">{w.title}</h3>
+    		<p className="mt-3 text-sm leading-relaxed text-muted-foreground">{w.desc}</p>
+  		</article>
+	))}
         </div>
       </div>
     </section>
