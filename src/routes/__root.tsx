@@ -74,6 +74,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Alma Yoga Studio — Yoga consciente en un espacio sereno" },
       { name: "description", content: "Clases, talleres y retiros de yoga en un ambiente íntimo y minimalista. Reconecta con tu cuerpo y tu respiración." },
+      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "Alma Yoga Studio" },
       { property: "og:description", content: "Yoga consciente: clases, talleres y retiros en un espacio sereno." },
       { property: "og:type", content: "website" },
